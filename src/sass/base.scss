@@ -1,0 +1,232 @@
+@import 'mixins';
+
+body {
+    background: #fff;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+#wrapper {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-bottom: 100px;
+}
+
+.header {
+    position: relative;
+    background-color: #f6f6f6;
+    height: 125px;
+}
+
+.title,
+.homeBtn,
+.filterCommitsInput {
+    position: absolute;
+    top: 50%;
+}
+
+.title {
+    font-size: 2em;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.homeBtn {
+    width: 30px;
+    left: 30px;
+    transform: translateY(-50%);
+}
+
+.filterCommitsInput {
+    position: absolute;
+    right: 30px;
+    width: 250px;
+    -webkit-appearance: none;
+    height: 35px;
+    border: none;
+    border: 1px solid #333;
+    border-radius: 4px;
+    outline: none;
+    transform: translateY(-50%);
+}
+
+.viewCommits {
+    position: absolute;
+    top: -1px;
+    right: -1px;
+    border: 1px solid #333;
+    border-right: none;
+    border-top: none;
+    color: #333;
+    padding: 8px;
+    font-size: 1em;
+    border-bottom-left-radius: 2px;
+    cursor: pointer;
+    transition: transform .15s;
+}
+
+.main {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.repo {
+    position: relative;
+    width: calc(100% / 3);
+    background-color: #fff;
+    border: 1px solid #f6f6f6;
+    padding-top: 40px;
+    box-shadow: 0 3px 20px -20px #000;
+    overflow: hidden;
+    transition: opacity .15s, transform .25s cubic-bezier(.34, 1.61, .7, 1), box-shadow .15s;
+}
+
+.name {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    padding: 0 20px;
+    font-weight: bold;
+}
+
+.name a {
+    color: #333;
+}
+
+.desc {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    padding: 0 20px;
+}
+
+.stats {
+    height: 150px;
+    div {
+        float: left;
+        width: calc(100% / 3);
+        position: relative;
+        height: 100%;
+    }
+    div * {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    img {
+        top: 30%;
+    }
+    .text {
+        top: 60%;
+    }
+}
+
+.commit {
+    border: 1px solid #f6f6f6;
+    position: relative;
+    height: 100px;
+    padding: 15px;
+    a {
+        color: #333;
+    }
+}
+
+.authorImg {
+    width: 60px;
+    height: auto;
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: 2px solid #333;
+    border-radius: 50%;
+}
+
+.authorUsername,
+.commitMessage {
+    margin-left: 75px;
+}
+
+.authorUsername {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.commitMessage {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+@include medmn(1025px) {
+    #wrapper {
+        width: 95%;
+    }
+    .viewCommits {
+        transform: translateX(100%);
+        font-size: .8em;
+    }
+    .main:hover {
+        .grid-view {
+            opacity: .4;
+        }
+        .grid-view:hover {
+            opacity: 1;
+            backface-visibility: hidden;
+            transform: scale(1.1) translateZ(0);
+            box-shadow: 0 3px 20px -5px #000;
+            z-index: 99;
+            .viewCommits {
+                transform: translateX(0);
+                &:hover {
+                    background-color: #333;
+                    color: #fff;
+                }
+            }
+        }
+    }
+}
+
+@include medmx(1024px) {
+    .title {
+        font-size: 1.5em;
+        top: 25px;
+        transform: translateX(-50%);
+    }
+    .homeBtn {
+        top: initial;
+        right: initial;
+        left: 15px;
+        bottom: 15px;
+        transform: initial;
+    }
+    .filterCommitsInput {
+        top: initial;
+        right: 15px;
+        bottom: 15px;
+        transform: initial;
+    }
+}
+
+@include medmxn(769px, 1024px) {
+    .repo {
+        width: 50%;
+    }
+}
+
+@include medmx(768px) {
+    .repo {
+        width: 100%;
+        border-top-width: 15px;
+        border-bottom-width: 15px;
+    }
+}

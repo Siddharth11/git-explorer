@@ -1,0 +1,208 @@
+body {
+  background: #fff;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  margin: 0;
+  padding: 0;
+  color: #333; }
+
+* {
+  box-sizing: border-box; }
+
+#wrapper {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-bottom: 100px; }
+
+.header {
+  position: relative;
+  background-color: #f6f6f6;
+  height: 125px; }
+
+.title,
+.homeBtn,
+.filterCommitsInput {
+  position: absolute;
+  top: 50%; }
+
+.title {
+  font-size: 2em;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%); }
+
+.homeBtn {
+  width: 30px;
+  left: 30px;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%); }
+
+.filterCommitsInput {
+  position: absolute;
+  right: 30px;
+  width: 250px;
+  -webkit-appearance: none;
+  height: 35px;
+  border: none;
+  border: 1px solid #333;
+  border-radius: 4px;
+  outline: none;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%); }
+
+.viewCommits {
+  position: absolute;
+  top: -1px;
+  right: -1px;
+  border: 1px solid #333;
+  border-right: none;
+  border-top: none;
+  color: #333;
+  padding: 8px;
+  font-size: 1em;
+  border-bottom-left-radius: 2px;
+  cursor: pointer;
+  -webkit-transition: -webkit-transform .15s;
+          transition: transform .15s; }
+
+.main {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row; }
+
+.repo {
+  position: relative;
+  width: calc(100% / 3);
+  background-color: #fff;
+  border: 1px solid #f6f6f6;
+  padding-top: 40px;
+  box-shadow: 0 3px 20px -20px #000;
+  overflow: hidden;
+  -webkit-transition: opacity 0.15s, -webkit-transform 0.25s cubic-bezier(0.34, 1.61, 0.7, 1), box-shadow 0.15s;
+          transition: opacity 0.15s, transform 0.25s cubic-bezier(0.34, 1.61, 0.7, 1), box-shadow 0.15s; }
+
+.name {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+  padding: 0 20px;
+  font-weight: bold; }
+
+.name a {
+  color: #333; }
+
+.desc {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  padding: 0 20px; }
+
+.stats {
+  height: 150px; }
+  .stats div {
+    float: left;
+    width: calc(100% / 3);
+    position: relative;
+    height: 100%; }
+  .stats div * {
+    position: absolute;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%); }
+  .stats img {
+    top: 30%; }
+  .stats .text {
+    top: 60%; }
+
+.commit {
+  border: 1px solid #f6f6f6;
+  position: relative;
+  height: 100px;
+  padding: 15px; }
+  .commit a {
+    color: #333; }
+
+.authorImg {
+  width: 60px;
+  height: auto;
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  border: 2px solid #333;
+  border-radius: 50%; }
+
+.authorUsername,
+.commitMessage {
+  margin-left: 75px; }
+
+.authorUsername {
+  font-size: 1.2em;
+  margin-bottom: 10px; }
+
+.commitMessage {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden; }
+
+@media all and (min-width: 1025px) {
+  #wrapper {
+    width: 95%; }
+  .viewCommits {
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+    font-size: .8em; }
+  .main:hover .grid-view {
+    opacity: .4; }
+  .main:hover .grid-view:hover {
+    opacity: 1;
+    -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+    -webkit-transform: scale(1.1) translateZ(0);
+            transform: scale(1.1) translateZ(0);
+    box-shadow: 0 3px 20px -5px #000;
+    z-index: 99; }
+    .main:hover .grid-view:hover .viewCommits {
+      -webkit-transform: translateX(0);
+              transform: translateX(0); }
+      .main:hover .grid-view:hover .viewCommits:hover {
+        background-color: #333;
+        color: #fff; } }
+
+@media all and (max-width: 1024px) {
+  .title {
+    font-size: 1.5em;
+    top: 25px;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%); }
+  .homeBtn {
+    top: initial;
+    right: initial;
+    left: 15px;
+    bottom: 15px;
+    -webkit-transform: initial;
+            transform: initial; }
+  .filterCommitsInput {
+    top: initial;
+    right: 15px;
+    bottom: 15px;
+    -webkit-transform: initial;
+            transform: initial; } }
+
+@media all and (min-width: 769px) and (max-width: 1024px) {
+  .repo {
+    width: 50%; } }
+
+@media all and (max-width: 768px) {
+  .repo {
+    width: 100%;
+    border-top-width: 15px;
+    border-bottom-width: 15px; } }

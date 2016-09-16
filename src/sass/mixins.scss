@@ -1,0 +1,17 @@
+@mixin medmxn($mnw, $mxw) {
+    @media all and (min-width: $mnw) and (max-width: $mxw) {
+        @content;
+    }
+}
+
+@mixin medmx($mxw) {
+    @media all and (max-width: $mxw) {
+        @content;
+    }
+}
+
+@mixin medmn($mnw) {
+    @media all and (min-width: $mnw) {
+        @content;
+    }
+}
